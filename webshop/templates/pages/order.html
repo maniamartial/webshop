@@ -207,17 +207,22 @@
 						<label for="payment-method">Choose Payment Method:</label>
 						<select id="payment-method" onchange="myFunction()" class="form-control">
 							<option value=""></option>
+							<option value="till_no">Till No</option>
+							<option value="mpesa">Mpesa Express(Unavailable)</option>
 							<option value="credit_card">Others</option>
-							<option value="mpesa">Mpesa</option>
+							
 						</select>
 					</div>
 					<div class="form-group" id="mpesa-phone-number" style="display:none;">
 						<label for="phone-number">Enter Phone Number:</label>
 						<input type="text" class="form-control" id="phone-number" placeholder="Phone Number">
 					</div>
+					<div class="form-group" id="till_no" style="display:none;">
+						<label class="text-primary" style="color:blue;font-size:24px" for="till-no"><strong>200701</strong></label>
+					</div>
 				</div>
-				<div class="modal-footer">
-					<div class="modal-footer">
+				<div class="modal-footer" style="display:none;">
+					<div class="modal-footer" id="payment-modal-footer">
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">{{ _("Cancel") }}</button>
 						<button type="button" class="btn btn-primary mr-5" id="confirm-payment">{{ _("Proceed") }}</button>
 					</div>
@@ -273,12 +278,18 @@
 		window.myFunction = function () {
 			const paymentMethodSelect = document.getElementById("payment-method").value;
 			const mpesaPhoneNumberField = document.getElementById("mpesa-phone-number");
-		
-		
+			const tillNoField = document.getElementById("till_no");
+			const footerModal = document.getElementById("payment-modal-footer");
 			if (paymentMethodSelect === 'mpesa') {
 				mpesaPhoneNumberField.style.display = 'block'; 
+				footerModal.style.display = 'block';
+			}
+			else if(paymentMethodSelect === 'till_no'){
+				tillNoField.style.display = 'block';
+
 			} else {
 				mpesaPhoneNumberField.style.display = 'none';
+				tillNoField.style.display = 'none';
 			}
 		};
 	</script>
