@@ -193,44 +193,43 @@
 	{% endif %}
 
 	<!-- Modal HTML -->
-	<div id="payment-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="payment-modal-label" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="payment-modal-label">Select Payment Method</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<div class="form-group">
-						<label for="payment-method">Choose Payment Method:</label>
-						<select id="payment-method" onchange="myFunction()" class="form-control">
-							<option value=""></option>
-							<option value="till_no">Till No</option>
-							<option value="mpesa">Mpesa Express(Unavailable)</option>
-							<option value="credit_card">Others</option>
-							
-						</select>
-					</div>
-					<div class="form-group" id="mpesa-phone-number" style="display:none;">
-						<label for="phone-number">Enter Phone Number:</label>
-						<input type="text" class="form-control" id="phone-number" placeholder="Phone Number">
-					</div>
-					<div class="form-group" id="till_no" style="display:none;">
-						<label class="text-primary" style="color:blue;font-size:24px" for="till-no"><strong>Coming soon!😊</strong></label>
-					</div>
-				</div>
-				<div class="modal-footer" style="display:none;">
-					<div class="modal-footer" id="payment-modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">{{ _("Cancel") }}</button>
-						<button type="button" class="btn btn-primary mr-5" id="confirm-payment">{{ _("Proceed") }}</button>
-					</div>
-		
-				</div>
-			</div>
-		</div>
-	</div>
+<div id="payment-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="payment-modal-label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="payment-modal-label">Select Payment Method</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="payment-method">Choose Payment Method:</label>
+                    <select id="payment-method" onchange="myFunction()" class="form-control">
+                        <option value=""></option>
+                        <option value="till_no">Paybill No</option>
+                        <option value="mpesa" disabled>Mpesa Express(Unavailable)</option>
+                        <option value="credit_card" disabled>Others</option>
+                    </select>
+                </div>
+                <div class="form-group" id="mpesa-phone-number" style="display:none;">
+                    <label for="phone-number">Enter Phone Number:</label>
+                    <input type="text" class="form-control" id="phone-number" placeholder="Phone Number">
+                </div>
+                <div class="form-group" id="till_no" style="display:none;">
+                    <label class="text-primary" style="color:blue;font-size:16px" for="till-no"><span>Paybill: </span><strong class="ml-7" style="color:blue">516600</strong></label><br/>
+                    <label class="text-primary" style="color:blue;font-size:16px" for="till-no"><span>Account No.</span><strong class="ml-2"  style="color:blue">200701</strong></label>
+                </div>
+            </div>
+            <div class="modal-footer" style="display:none">
+                <div class="modal-footer" id="payment-modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ _("Cancel") }}</button>
+                    <button type="button" class="btn btn-primary mr-5" id="confirm-payment">{{ _("Proceed") }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 	
 {% endblock %}
 
